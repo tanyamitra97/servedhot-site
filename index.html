@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servedhot Productions | Bold Content That Makes Brands Impossible to Ignore</title>
+  <meta name="description" content="Servedhot Productions is a Delhi NCR-based ad production company specializing in AI/CGI production, video production, photo shoots, and post-production editing.">
+  <meta property="og:title" content="Servedhot Productions | Ad Production & Creative Agency">
+  <meta property="og:description" content="Bold content that makes brands impossible to ignore. Video production, CGI, photo shoots & post-production.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ============ SPLASH SCREEN — Cinematic Intro ============ -->
+  <div class="splash" id="splash" aria-hidden="true">
+
+    <!-- Film grain overlay -->
+    <div class="splash__grain"></div>
+
+    <!-- Cinematic letterbox bars -->
+    <div class="splash__bar splash__bar--top"></div>
+    <div class="splash__bar splash__bar--bot"></div>
+
+    <!-- Lens flare sweep -->
+    <div class="splash__flare"></div>
+
+    <!-- Light leak wash -->
+    <div class="splash__leak"></div>
+
+    <!-- Center content -->
+    <div class="splash__stage">
+
+      <!-- Logo icon — draws in with clip-path -->
+      <div class="splash__icon">
+        <svg width="80" height="80" viewBox="0 0 48 32" fill="none">
+          <rect class="splash__icon-bg" width="48" height="32" rx="6" fill="#FF3C28"/>
+          <text class="splash__icon-mark" x="50%" y="22.5" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="18" fill="white" letter-spacing="1">HOT</text>
+        </svg>
+      </div>
+
+      <!-- Wordmark — each letter individually animated -->
+      <div class="splash__word-wrap">
+        <h2 class="splash__word">
+          <span class="splash__char" style="--i:0">s</span><span class="splash__char" style="--i:1">e</span><span class="splash__char" style="--i:2">r</span><span class="splash__char" style="--i:3">v</span><span class="splash__char" style="--i:4">e</span><span class="splash__char" style="--i:5">d</span><span class="splash__char splash__char--hot" style="--i:6">h</span><span class="splash__char splash__char--hot" style="--i:7">o</span><span class="splash__char splash__char--hot" style="--i:8">t</span><span class="splash__char splash__char--dot" style="--i:9">.</span>
+        </h2>
+        <!-- Glitch echo layers (behind main text) -->
+        <div class="splash__glitch splash__glitch--r" aria-hidden="true">servedhot.</div>
+        <div class="splash__glitch splash__glitch--b" aria-hidden="true">servedhot.</div>
+        <!-- Horizontal reveal mask -->
+        <div class="splash__reveal-mask" aria-hidden="true"></div>
+      </div>
+
+      <!-- Tagline with typing cursor -->
+      <div class="splash__tagline">
+        <span class="splash__tagline-line"></span>
+        <span class="splash__tagline-text" id="splashTagline"></span>
+        <span class="splash__tagline-cursor" aria-hidden="true"></span>
+        <span class="splash__tagline-line"></span>
+      </div>
+
+      <!-- Bottom dressing — fake film metadata -->
+      <div class="splash__meta">
+        <span>REC &bull; 4K</span>
+        <span class="splash__meta-blink">&#9679;</span>
+        <span>24FPS</span>
+      </div>
+
+    </div>
+
+    <!-- Skip button -->
+    <button class="splash__skip" id="splashSkip" aria-label="Skip intro">
+      Skip
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Skip to content -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Floating particles -->
+  <canvas class="particles" id="particles" aria-hidden="true"></canvas>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Servedhot Productions Home">
+        <span class="nav__logo-icon">
+          <svg width="42" height="28" viewBox="0 0 48 32" fill="none" aria-hidden="true">
+            <rect width="48" height="32" rx="6" fill="#FF3C28"/>
+            <text x="50%" y="22.5" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="18" fill="white" letter-spacing="1">HOT</text>
+          </svg>
+        </span>
+        <span class="nav__logo-text">served<span class="accent">hot</span><span class="accent">.</span></span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+        <a href="#work" class="nav__link">Work</a>
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#brands" class="nav__link">Brands</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#contact" class="nav__link nav__link--cta">Get In Touch</a>
+      </nav>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <!-- Diagonal accent line -->
+      <div class="hero__diag" aria-hidden="true"></div>
+
+      <div class="hero__grid">
+        <!-- LEFT: Editorial text block -->
+        <div class="hero__left">
+          <div class="hero__label reveal">
+            <span class="hero__label-line" aria-hidden="true"></span>
+            <span class="hero__label-text">Ad Production &mdash; Delhi NCR</span>
+          </div>
+
+          <h1 class="hero__title reveal reveal--delay-1">
+            <span class="hero__title-line">We</span>
+            <span class="hero__title-line">Serve&nbsp;It</span>
+            <span class="hero__title-line hero__title-hot">Hot<span class="hero__dot">.</span></span>
+          </h1>
+
+          <div class="hero__rule reveal reveal--delay-2" aria-hidden="true"></div>
+
+          <p class="hero__desc reveal reveal--delay-2">
+            We craft bold ad films, commercials, and branded content for India's top brands &mdash; from Nestl&eacute; to Zomato. 7+ years of making audiences stop scrolling and start watching.
+          </p>
+
+          <div class="hero__ctas reveal reveal--delay-3">
+            <a href="#work" class="btn btn--primary" data-magnetic>
+              <span>View Our Work</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+            <a href="#contact" class="btn btn--ghost">Start a Project</a>
+          </div>
+
+          <div class="hero__meta reveal reveal--delay-3">
+            <div class="hero__meta-item">
+              <span class="hero__meta-num">7+</span>
+              <span class="hero__meta-label">Years</span>
+            </div>
+            <div class="hero__meta-divider" aria-hidden="true"></div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-num">40+</span>
+              <span class="hero__meta-label">Brands</span>
+            </div>
+            <div class="hero__meta-divider" aria-hidden="true"></div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-num">100+</span>
+              <span class="hero__meta-label">Projects</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Cinematic reel collage -->
+        <div class="hero__right reveal reveal--delay-1">
+          <div class="hero__reel">
+            <a href="https://www.instagram.com/servedhotproductions/reel/DTacvQAjwim/" target="_blank" rel="noopener noreferrer" class="hero__reel-main">
+              <video class="hero__reel-video" muted loop playsinline poster="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=700&h=900&fit=crop">
+                <source src="assets/video/served-hot-video.mp4" type="video/mp4">
+              </video>
+              <div class="hero__reel-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Showreel</span>
+              </div>
+              <button class="hero__mute-btn" id="heroMuteBtn" aria-label="Toggle sound" onclick="event.preventDefault(); event.stopPropagation();">
+                <svg class="hero__mute-icon hero__mute-icon--off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                <svg class="hero__mute-icon hero__mute-icon--on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              </button>
+            </a>
+          </div>
+          <!-- Vertical text -->
+          <div class="hero__vert" aria-hidden="true">SERVEDHOT &copy; 2025</div>
+        </div>
+      </div>
+
+      <!-- Bottom scroll indicator -->
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll to explore</span>
+        <div class="hero__scroll-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK / PORTFOLIO ============ -->
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">SELECTED WORK</span>
+          <h2 class="section-title">Projects That<br><span class="accent">Turned Heads.</span></h2>
+        </div>
+        <div class="work__filters reveal">
+          <button class="work__filter active" data-filter="all">All</button>
+          <button class="work__filter" data-filter="ad-film">Ad Films</button>
+          <button class="work__filter" data-filter="photo">Product &amp; Photo</button>
+          <button class="work__filter" data-filter="post">Branded Content</button>
+        </div>
+        <div class="work__grid">
+          <article class="work__card reveal" data-category="ad-film">
+            <a href="https://www.youtube.com/watch?v=4H0sVCgKtqM" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <img src="https://img.youtube.com/vi/4H0sVCgKtqM/maxresdefault.jpg" alt="Maggi Baarish Wali Masaledaar campaign commercial" loading="lazy" width="600" height="400">
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch on YouTube
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">AD FILM</span>
+                <h3 class="work__card-title">Maggi &mdash; Baarish Wali Masaledaar</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card work__card--tall reveal" data-category="ad-film">
+            <a href="https://www.youtube.com/watch?v=OQJ4c1a7jpw" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <video class="work__card-video" autoplay muted loop playsinline poster="https://img.youtube.com/vi/OQJ4c1a7jpw/maxresdefault.jpg">
+                  <source src="assets/video/IQOO.mp4" type="video/mp4">
+                </video>
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch on YouTube
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">DIGITAL AD</span>
+                <h3 class="work__card-title">iQOO &mdash; Phone Commercial</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card reveal" data-category="photo">
+            <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <img src="assets/images/nescafe.png" alt="Nescafe Iced Latte product photography campaign" loading="lazy" width="600" height="400">
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    View Project
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">PRODUCT SHOOT</span>
+                <h3 class="work__card-title">Nescaf&eacute; &mdash; Iced Latte Campaign</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card reveal" data-category="ad-film">
+            <a href="https://www.youtube.com/watch?v=qA-dzo_yt4Q" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <img src="https://img.youtube.com/vi/qA-dzo_yt4Q/maxresdefault.jpg" alt="Master Chow Ab Ghar Pe Banao Asli Chinese commercial with Chef Ranveer Brar" loading="lazy" width="600" height="400">
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch on YouTube
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">AD FILM</span>
+                <h3 class="work__card-title">Master Chow &mdash; Chef Ranveer Brar</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card reveal" data-category="ad-film">
+            <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <video class="work__card-video" autoplay muted loop playsinline>
+                  <source src="assets/video/kewal-masala.mp4" type="video/mp4">
+                </video>
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    View Project
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">AD FILM</span>
+                <h3 class="work__card-title">Kewal Masala &mdash; Brand Commercial</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card reveal" data-category="photo">
+            <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <img src="assets/images/jummy.png" alt="Jimmy's Cocktails Zero Sugar product photography" loading="lazy" width="600" height="400">
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    View Project
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">PRODUCT SHOOT</span>
+                <h3 class="work__card-title">Jimmy's Cocktails &mdash; Zero Sugar</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card work__card--tall reveal" data-category="photo">
+            <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <img src="assets/images/pizza-hut.png" alt="Pizza Hut Choose Your Treat For The Weekend campaign" loading="lazy" width="600" height="700">
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    View Project
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">SOCIAL MEDIA</span>
+                <h3 class="work__card-title">Pizza Hut &mdash; Weekend Campaign</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card reveal" data-category="post">
+            <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <img src="assets/images/cinepolis.png" alt="Cinepolis Feast Before The Finale campaign" loading="lazy" width="600" height="400">
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    View Project
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">SOCIAL MEDIA</span>
+                <h3 class="work__card-title">Cin&eacute;polis &mdash; Feast Before The Finale</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card reveal" data-category="post">
+            <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <video class="work__card-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1515562141589-67f0d569b6fc?w=600&h=400&fit=crop">
+                  <source src="assets/video/zenma.mp4" type="video/mp4">
+                </video>
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    View Project
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">BRANDED CONTENT</span>
+                <h3 class="work__card-title">Zenma &mdash; Frozen Crema</h3>
+              </div>
+            </a>
+          </article>
+          <article class="work__card work__card--tall reveal" data-category="photo">
+            <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer" class="work__card-link">
+              <div class="work__card-media">
+                <img src="assets/images/bazaari.png" alt="7Bazzari premium gift hamper product photography" loading="lazy" width="600" height="700">
+                <div class="work__card-overlay">
+                  <span class="work__card-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    View Project
+                  </span>
+                </div>
+              </div>
+              <div class="work__card-info">
+                <span class="work__card-tag">PRODUCT SHOOT</span>
+                <h3 class="work__card-title">7Bazzari &mdash; Gift Hamper Collection</h3>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee ticker -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">AD FILMS</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">DIGITAL ADS</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">SOCIAL MEDIA CONTENT</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">PRODUCT SHOOTS</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">RESTAURANT CONTENT</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">PODCASTS</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">A+ CONTENT</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">POST PRODUCTION</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">AD FILMS</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">DIGITAL ADS</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">SOCIAL MEDIA CONTENT</span>
+        <span class="marquee__sep">&mdash;</span>
+        <span class="marquee__item">PRODUCT SHOOTS</span>
+        <span class="marquee__sep">&mdash;</span>
+      </div>
+    </div>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services__top reveal">
+          <span class="section-tag">WHAT WE DO</span>
+          <h2 class="services__heading">Services<span class="accent">.</span></h2>
+        </div>
+
+        <div class="svc-bento">
+          <!-- HERO CARD: End-to-End Production (spans 2 cols, tall) -->
+          <div class="svc-card svc-card--hero reveal" style="--i:0">
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">01</span>
+            <div class="svc-card__icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="svc-card__title">End-to-End<br>Production</h3>
+            <p class="svc-card__desc">From concept to final delivery &mdash; scripting, pre-production, shoot, and post under one roof. One team. One vision.</p>
+            <span class="svc-card__tag">FULL SERVICE</span>
+          </div>
+
+          <!-- Digital Ads -->
+          <div class="svc-card reveal" style="--i:1">
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">02</span>
+            <div class="svc-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <h3 class="svc-card__title">Digital Ads &amp; Commercials</h3>
+            <p class="svc-card__desc">High-impact reels, digital ads, and commercial films crafted to stop the scroll.</p>
+          </div>
+
+          <!-- Micro Content -->
+          <div class="svc-card reveal" style="--i:2">
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">03</span>
+            <div class="svc-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <h3 class="svc-card__title">Micro Content &amp; Social Media</h3>
+            <p class="svc-card__desc">Scroll-stopping reels and micro videos for Instagram, YouTube &amp; beyond.</p>
+          </div>
+
+          <!-- Product Videography (spans 2 cols) -->
+          <div class="svc-card svc-card--wide reveal" style="--i:3">
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">04</span>
+            <div class="svc-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <h3 class="svc-card__title">Product Videography &amp; Photography</h3>
+            <p class="svc-card__desc">Studio and on-location shoots for products, food, fashion, and lifestyle brands that demand visual excellence.</p>
+          </div>
+
+          <!-- Restaurant Content -->
+          <div class="svc-card reveal" style="--i:4">
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">05</span>
+            <div class="svc-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <h3 class="svc-card__title">Restaurant Content</h3>
+            <p class="svc-card__desc">Mouthwatering food content, menu shoots, and restaurant brand films.</p>
+          </div>
+
+          <!-- Podcast -->
+          <div class="svc-card reveal" style="--i:5">
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">06</span>
+            <div class="svc-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            </div>
+            <h3 class="svc-card__title">Podcast Production</h3>
+            <p class="svc-card__desc">Studio setup, recording, editing, and publishing-ready episodes.</p>
+          </div>
+
+          <!-- A+ Content -->
+          <div class="svc-card reveal" style="--i:6">
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">07</span>
+            <div class="svc-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="svc-card__title">A+ Content Shoots</h3>
+            <p class="svc-card__desc">Premium listing content for e-commerce. Boost conversions.</p>
+          </div>
+
+          <!-- HERO CARD: Post Production (spans 2 cols, tall) -->
+          <div class="svc-card svc-card--hero reveal" style="--i:7">
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">08</span>
+            <div class="svc-card__icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </div>
+            <h3 class="svc-card__title">Post<br>Production</h3>
+            <p class="svc-card__desc">Editing, color grading, sound design, and VFX compositing that elevate raw footage into art. The magic happens here.</p>
+            <span class="svc-card__tag">THE FINAL CUT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <div class="container">
+        <!-- Heading spans full width -->
+        <div class="about__top reveal">
+          <span class="section-tag">WHO WE ARE</span>
+          <h2 class="about__headline">We don't just create content<span class="accent">.</span><br>We create <span class="accent">reactions.</span></h2>
+        </div>
+
+        <!-- Two-column: video left (60%), text right (40%) -->
+        <div class="about__split">
+          <div class="about__video-col reveal">
+            <div class="about__video-frame">
+              <video autoplay muted loop playsinline>
+                <source src="assets/video/tanya-mitra.mp4" type="video/mp4">
+              </video>
+            </div>
+            <!-- Founder tag below video -->
+            <a href="https://www.linkedin.com/in/tanya-mitra" target="_blank" rel="noopener noreferrer" class="about__founder-badge">
+              <span class="about__founder-name">Tanya Mitra</span>
+              <span class="about__founder-role">Founder &amp; Creative Director</span>
+              <span class="about__founder-exp">7+ yrs</span>
+              <span class="about__founder-li" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="about__text-col reveal">
+            <p class="about__bio">A creative producer &amp; director who transforms ambitious ideas into impactful work. From post-production to end-to-end creative direction &mdash; every project delivered with perfection.</p>
+            <p class="about__bio">Partnered with Nestl&eacute;, McDonald's, Maggi, Nescaf&eacute;, Zomato, Mumbai Indians, Cin&eacute;polis, Xiaomi, iQOO, and 30+ more brands &mdash; all of whom now stand bolder, sharper, and cooler.</p>
+
+            <!-- Stats integrated inside text column -->
+            <div class="about__stats">
+              <div class="about__stat">
+                <span class="about__stat-number" data-target="100">0</span><span class="about__stat-plus">+</span>
+                <span class="about__stat-label">Projects</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-number" data-target="40">0</span><span class="about__stat-plus">+</span>
+                <span class="about__stat-label">Brands</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-number" data-target="7">0</span><span class="about__stat-plus">+</span>
+                <span class="about__stat-label">Years</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-number" data-target="100">0</span><span class="about__stat-plus">%</span>
+                <span class="about__stat-label">Satisfaction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BRANDS / CLIENTS ============ -->
+    <section class="brands" id="brands">
+      <div class="container">
+        <div class="brands__header reveal">
+          <span class="section-tag">TRUSTED BY 40+ BRANDS</span>
+          <h2 class="brands__heading">The Roster<span class="accent">.</span></h2>
+          <p class="brands__subtitle">From FMCG giants to lifestyle disruptors &mdash; we've produced for India's boldest brands.</p>
+        </div>
+
+        <!-- 3D Studio Wall -->
+        <div class="brands__wall" id="brandsWall">
+          <!-- Row 1: Hero brands (large) -->
+          <div class="brands__tile brands__tile--xl" style="--d:0"><img src="assets/logos/mcdonalds.png" alt="McDonald's" loading="lazy"></div>
+          <div class="brands__tile brands__tile--lg" style="--d:1"><img src="assets/logos/pepsi.png" alt="Pepsi" loading="lazy"></div>
+          <div class="brands__tile brands__tile--xl" style="--d:2"><img src="assets/logos/zomato.png" alt="Zomato" loading="lazy"></div>
+          <div class="brands__tile brands__tile--lg" style="--d:3"><img src="assets/logos/amul.png" alt="Amul" loading="lazy"></div>
+          <div class="brands__tile brands__tile--xl" style="--d:4"><img src="assets/logos/maggi.png" alt="Maggi" loading="lazy"></div>
+
+          <!-- Row 2: mid brands -->
+          <div class="brands__tile brands__tile--md" style="--d:5"><img src="assets/logos/nestle.png" alt="Nestlé" loading="lazy"></div>
+          <div class="brands__tile brands__tile--md" style="--d:6"><img src="assets/logos/pizza-hut.png" alt="Pizza Hut" loading="lazy"></div>
+          <div class="brands__tile brands__tile--md" style="--d:7"><img src="assets/logos/xiaomi.png" alt="Xiaomi" loading="lazy"></div>
+          <div class="brands__tile brands__tile--md" style="--d:8"><img src="assets/logos/mumbai-indians.png" alt="Mumbai Indians" loading="lazy"></div>
+          <div class="brands__tile brands__tile--md" style="--d:9"><img src="assets/logos/cinepolis.png" alt="Cinépolis" loading="lazy"></div>
+          <div class="brands__tile brands__tile--md" style="--d:10"><img src="assets/logos/nescafe.png" alt="Nescafé" loading="lazy"></div>
+          <div class="brands__tile brands__tile--md" style="--d:11"><img src="assets/logos/catch.png" alt="Catch" loading="lazy"></div>
+
+          <!-- Row 3: smaller brands -->
+          <div class="brands__tile" style="--d:12"><img src="assets/logos/iqoo.png" alt="iQOO" loading="lazy"></div>
+          <div class="brands__tile" style="--d:13"><img src="assets/logos/mccain.png" alt="McCain" loading="lazy"></div>
+          <div class="brands__tile" style="--d:14"><img src="assets/logos/aprilia.png" alt="Aprilia" loading="lazy"></div>
+          <div class="brands__tile" style="--d:15"><img src="assets/logos/mountain-dew.png" alt="Mountain Dew" loading="lazy"></div>
+          <div class="brands__tile" style="--d:16"><img src="assets/logos/master-chow.png" alt="Master Chow" loading="lazy"></div>
+          <div class="brands__tile" style="--d:17"><img src="assets/logos/jimmys-cocktails.png" alt="Jimmy's Cocktails" loading="lazy"></div>
+          <div class="brands__tile" style="--d:18"><img src="assets/logos/farmley.png" alt="Farmley" loading="lazy"></div>
+          <div class="brands__tile" style="--d:19"><img src="assets/logos/emami.png" alt="Emami" loading="lazy"></div>
+          <div class="brands__tile" style="--d:20"><img src="assets/logos/horn-ok-please.png" alt="Horn OK Please" loading="lazy"></div>
+          <div class="brands__tile" style="--d:21"><img src="assets/logos/canteen.png" alt="Canteen" loading="lazy"></div>
+
+          <!-- Row 4: more brands -->
+          <div class="brands__tile" style="--d:22"><img src="assets/logos/blue-tribe.png" alt="Blue Tribe" loading="lazy"></div>
+          <div class="brands__tile" style="--d:23"><img src="assets/logos/sorrentina.png" alt="Sorrentina" loading="lazy"></div>
+          <div class="brands__tile" style="--d:24"><img src="assets/logos/slyce.png" alt="Slyce" loading="lazy"></div>
+          <div class="brands__tile" style="--d:25"><img src="assets/logos/goldiee.png" alt="Goldiee" loading="lazy"></div>
+          <div class="brands__tile" style="--d:26"><img src="assets/logos/hyfun.png" alt="Hyfun" loading="lazy"></div>
+          <div class="brands__tile" style="--d:27"><img src="assets/logos/zenma.png" alt="Zenma" loading="lazy"></div>
+          <div class="brands__tile" style="--d:28"><img src="assets/logos/grub-fest.png" alt="The Grub Fest" loading="lazy"></div>
+          <div class="brands__tile" style="--d:29"><img src="assets/logos/bazzari.png" alt="Bazzari" loading="lazy"></div>
+          <div class="brands__tile" style="--d:30"><img src="assets/logos/jamie-olivers.png" alt="Jamie Oliver's Pizzeria" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">HOW WE WORK</span>
+          <h2 class="section-title">From Concept To<br><span class="accent">Final Cut.</span></h2>
+        </div>
+        <div class="process__timeline">
+          <div class="process__line" aria-hidden="true">
+            <div class="process__line-fill"></div>
+          </div>
+          <div class="process__step reveal">
+            <div class="process__number">01</div>
+            <h3 class="process__step-title">Discovery & Strategy</h3>
+            <p class="process__step-desc">We dive deep into your brand, audience, and goals to craft a strategy that drives results.</p>
+          </div>
+          <div class="process__step reveal">
+            <div class="process__number">02</div>
+            <h3 class="process__step-title">Creative Development</h3>
+            <p class="process__step-desc">Storyboards, moodboards, and creative concepts that bring your vision to life on paper before production.</p>
+          </div>
+          <div class="process__step reveal">
+            <div class="process__number">03</div>
+            <h3 class="process__step-title">Production & Shoot</h3>
+            <p class="process__step-desc">Lights, camera, action. Our crew executes with precision, capturing every frame with cinematic quality.</p>
+          </div>
+          <div class="process__step reveal">
+            <div class="process__number">04</div>
+            <h3 class="process__step-title">Post-Production & Delivery</h3>
+            <p class="process__step-desc">Editing, color grading, VFX, and sound design — polished to perfection and delivered on time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">CLIENT LOVE</span>
+          <h2 class="section-title">What They Say<br><span class="accent">About Us.</span></h2>
+        </div>
+        <div class="testimonials__grid">
+          <blockquote class="testimonials__card reveal">
+            <div class="testimonials__stars" aria-label="5 out of 5 stars">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonials__quote">"Servedhot didn't just deliver a video — they delivered a brand transformation. The quality of their work exceeded everything we imagined."</p>
+            <footer class="testimonials__author">
+              <div class="testimonials__avatar">RK</div>
+              <div>
+                <cite class="testimonials__name">Rahul Kapoor</cite>
+                <span class="testimonials__role">Marketing Head, UrbanVibe</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonials__card reveal">
+            <div class="testimonials__stars" aria-label="5 out of 5 stars">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonials__quote">"Their attention to detail in post-production is unmatched. Every color grade, every cut — pure cinema. These guys understand visual storytelling."</p>
+            <footer class="testimonials__author">
+              <div class="testimonials__avatar">PS</div>
+              <div>
+                <cite class="testimonials__name">Priya Sharma</cite>
+                <span class="testimonials__role">Creative Director, Pulse Agency</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonials__card reveal">
+            <div class="testimonials__stars" aria-label="5 out of 5 stars">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF3C28" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonials__quote">"Fast turnaround, incredible CGI work, and a team that genuinely cares about the final output. Servedhot is our go-to production partner."</p>
+            <footer class="testimonials__author">
+              <div class="testimonials__avatar">AM</div>
+              <div>
+                <cite class="testimonials__name">Arjun Mehta</cite>
+                <span class="testimonials__role">Founder, Freshbite Foods</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Big CTA marquee -->
+    <div class="marquee marquee--big" aria-hidden="true">
+      <div class="marquee__track marquee__track--reverse">
+        <span class="marquee__item marquee__item--outline">LET'S CREATE SOMETHING</span>
+        <span class="marquee__item">HOT</span>
+        <span class="marquee__sep">&bull;</span>
+        <span class="marquee__item marquee__item--outline">LET'S CREATE SOMETHING</span>
+        <span class="marquee__item">HOT</span>
+        <span class="marquee__sep">&bull;</span>
+        <span class="marquee__item marquee__item--outline">LET'S CREATE SOMETHING</span>
+        <span class="marquee__item">HOT</span>
+        <span class="marquee__sep">&bull;</span>
+      </div>
+    </div>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="container">
+
+        <!-- Top: tag + heading -->
+        <div class="contact__top reveal">
+          <span class="section-tag">LET'S TALK</span>
+          <h2 class="contact__heading">Got a project?<br><span class="accent">Let's make it hot.</span></h2>
+        </div>
+
+        <!-- Big email link — the hero of the section -->
+        <a href="mailto:tanya.mitra97@gmail.com" class="contact__email reveal" data-magnetic>
+          <span class="contact__email-text">tanya.mitra97<span class="accent">@</span>gmail.com</span>
+          <span class="contact__email-arrow">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
+        </a>
+
+        <!-- Meta row: phone, location, socials -->
+        <div class="contact__meta reveal">
+          <a href="tel:+919876543210" class="contact__meta-item">
+            <span class="contact__meta-label">Phone</span>
+            <span class="contact__meta-value">+91 98765 43210</span>
+          </a>
+          <div class="contact__meta-item">
+            <span class="contact__meta-label">Location</span>
+            <span class="contact__meta-value">Delhi NCR, India</span>
+          </div>
+          <div class="contact__meta-item">
+            <span class="contact__meta-label">Follow</span>
+            <div class="contact__socials">
+              <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer" class="contact__social" aria-label="Instagram">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/tanya-mitra" target="_blank" rel="noopener noreferrer" class="contact__social" aria-label="LinkedIn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="contact__social" aria-label="Behance">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12.5h6.5M1 7h5.5a3 3 0 1 1 0 6H1V7zm0 6h6a3.5 3.5 0 1 1 0 7H1v-7z"/><path d="M15 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5 0h-1M14 7h6"/></svg>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="contact__social" aria-label="YouTube">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="#" class="nav__logo" aria-label="Servedhot Productions Home">
+            <span class="nav__logo-icon">
+              <svg width="38" height="25" viewBox="0 0 48 32" fill="none" aria-hidden="true">
+                <rect width="48" height="32" rx="6" fill="#FF3C28"/>
+                <text x="50%" y="22.5" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="18" fill="white" letter-spacing="1">HOT</text>
+              </svg>
+            </span>
+            <span class="nav__logo-text">served<span class="accent">hot</span><span class="accent">.</span></span>
+          </a>
+          <p class="footer__tagline">Bold content that makes brands impossible to ignore.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4 class="footer__heading">Navigate</h4>
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#brands">Brands</a>
+            <a href="#about">About</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__heading">Services</h4>
+            <a href="#services">End-to-End Production</a>
+            <a href="#services">Digital Ads &amp; Commercials</a>
+            <a href="#services">Product Videography</a>
+            <a href="#services">Post Production</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__heading">Connect</h4>
+            <a href="https://www.instagram.com/servedhotproductions/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com/in/tanya-mitra" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Behance</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Servedhot Productions. All rights reserved.</p>
+        <button class="footer__top" id="backToTop" aria-label="Back to top">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
