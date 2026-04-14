@@ -38,10 +38,7 @@
 
       <!-- Logo icon — draws in with clip-path -->
       <div class="splash__icon">
-        <svg width="80" height="80" viewBox="0 0 48 32" fill="none">
-          <rect class="splash__icon-bg" width="48" height="32" rx="6" fill="#FF3C28"/>
-          <text class="splash__icon-mark" x="50%" y="22.5" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="18" fill="white" letter-spacing="1">HOT</text>
-        </svg>
+        <img src="assets/logos/servedhot-logo.jpg" alt="Servedhot Productions" width="80" height="80" style="border-radius:12px;">
       </div>
 
       <!-- Wordmark — each letter individually animated -->
@@ -94,15 +91,12 @@
     <div class="nav__inner">
       <a href="#" class="nav__logo" aria-label="Servedhot Productions Home">
         <span class="nav__logo-icon">
-          <svg width="42" height="28" viewBox="0 0 48 32" fill="none" aria-hidden="true">
-            <rect width="48" height="32" rx="6" fill="#FF3C28"/>
-            <text x="50%" y="22.5" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="18" fill="white" letter-spacing="1">HOT</text>
-          </svg>
+          <img src="assets/logos/servedhot-logo.jpg" alt="Servedhot Productions" width="36" height="36" style="border-radius:8px;display:block;">
         </span>
         <span class="nav__logo-text">served<span class="accent">hot</span><span class="accent">.</span></span>
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Main navigation">
-        <a href="#work" class="nav__link">Work</a>
+        <!-- <a href="#work" class="nav__link">Work</a> -->
         <a href="#services" class="nav__link">Services</a>
         <a href="#brands" class="nav__link">Brands</a>
         <a href="#about" class="nav__link">About</a>
@@ -143,8 +137,8 @@
           </p>
 
           <div class="hero__ctas reveal reveal--delay-3">
-            <a href="#work" class="btn btn--primary" data-magnetic>
-              <span>View Our Work</span>
+            <a href="#services" class="btn btn--primary" data-magnetic>
+              <span>Explore Services</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </a>
             <a href="#contact" class="btn btn--ghost">Start a Project</a>
@@ -200,7 +194,7 @@
     </section>
 
     <!-- ============ WORK / PORTFOLIO ============ -->
-    <section class="work" id="work">
+    <section class="work" id="work" style="display:none">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">SELECTED WORK</span>
@@ -394,7 +388,7 @@
     </section>
 
     <!-- Marquee ticker -->
-    <div class="marquee" aria-hidden="true">
+    <div class="marquee" aria-hidden="true" style="display:none">
       <div class="marquee__track">
         <span class="marquee__item">AD FILMS</span>
         <span class="marquee__sep">&mdash;</span>
@@ -432,8 +426,10 @@
         </div>
 
         <div class="svc-bento">
-          <!-- HERO CARD: End-to-End Production (spans 2 cols, tall) -->
+          <!-- HERO CARD: End-to-End Production -->
           <div class="svc-card svc-card--hero reveal" style="--i:0">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=600&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
             <div class="svc-card__glow" aria-hidden="true"></div>
             <span class="svc-card__num">01</span>
             <div class="svc-card__icon">
@@ -444,10 +440,25 @@
             <span class="svc-card__tag">FULL SERVICE</span>
           </div>
 
-          <!-- Digital Ads -->
+          <!-- AI Ads -->
           <div class="svc-card reveal" style="--i:1">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=500&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
             <div class="svc-card__glow" aria-hidden="true"></div>
             <span class="svc-card__num">02</span>
+            <div class="svc-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg>
+            </div>
+            <h3 class="svc-card__title">AI-Powered Ads</h3>
+            <p class="svc-card__desc">Next-gen ad content using AI tools &mdash; faster production, smarter creative, and cinematic quality at scale.</p>
+          </div>
+
+          <!-- Digital Ads -->
+          <div class="svc-card reveal" style="--i:2">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&h=500&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
+            <div class="svc-card__glow" aria-hidden="true"></div>
+            <span class="svc-card__num">03</span>
             <div class="svc-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
             </div>
@@ -456,9 +467,11 @@
           </div>
 
           <!-- Micro Content -->
-          <div class="svc-card reveal" style="--i:2">
+          <div class="svc-card reveal" style="--i:3">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=500&h=500&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
             <div class="svc-card__glow" aria-hidden="true"></div>
-            <span class="svc-card__num">03</span>
+            <span class="svc-card__num">04</span>
             <div class="svc-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </div>
@@ -466,10 +479,12 @@
             <p class="svc-card__desc">Scroll-stopping reels and micro videos for Instagram, YouTube &amp; beyond.</p>
           </div>
 
-          <!-- Product Videography (spans 2 cols) -->
-          <div class="svc-card svc-card--wide reveal" style="--i:3">
+          <!-- Product Videography (wide) -->
+          <div class="svc-card svc-card--wide reveal" style="--i:4">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
             <div class="svc-card__glow" aria-hidden="true"></div>
-            <span class="svc-card__num">04</span>
+            <span class="svc-card__num">05</span>
             <div class="svc-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             </div>
@@ -478,9 +493,11 @@
           </div>
 
           <!-- Restaurant Content -->
-          <div class="svc-card reveal" style="--i:4">
+          <div class="svc-card reveal" style="--i:5">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&h=500&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
             <div class="svc-card__glow" aria-hidden="true"></div>
-            <span class="svc-card__num">05</span>
+            <span class="svc-card__num">06</span>
             <div class="svc-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             </div>
@@ -489,9 +506,11 @@
           </div>
 
           <!-- Podcast -->
-          <div class="svc-card reveal" style="--i:5">
+          <div class="svc-card reveal" style="--i:6">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=500&h=500&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
             <div class="svc-card__glow" aria-hidden="true"></div>
-            <span class="svc-card__num">06</span>
+            <span class="svc-card__num">07</span>
             <div class="svc-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
             </div>
@@ -500,9 +519,11 @@
           </div>
 
           <!-- A+ Content -->
-          <div class="svc-card reveal" style="--i:6">
+          <div class="svc-card reveal" style="--i:7">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
             <div class="svc-card__glow" aria-hidden="true"></div>
-            <span class="svc-card__num">07</span>
+            <span class="svc-card__num">08</span>
             <div class="svc-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
@@ -510,10 +531,12 @@
             <p class="svc-card__desc">Premium listing content for e-commerce. Boost conversions.</p>
           </div>
 
-          <!-- HERO CARD: Post Production (spans 2 cols, tall) -->
-          <div class="svc-card svc-card--hero reveal" style="--i:7">
+          <!-- HERO CARD: Post Production -->
+          <div class="svc-card svc-card--hero reveal" style="--i:8">
+            <img class="svc-card__bg" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=600&fit=crop" alt="" loading="lazy" aria-hidden="true">
+            <div class="svc-card__overlay" aria-hidden="true"></div>
             <div class="svc-card__glow" aria-hidden="true"></div>
-            <span class="svc-card__num">08</span>
+            <span class="svc-card__num">09</span>
             <div class="svc-card__icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
             </div>
@@ -806,10 +829,7 @@
         <div class="footer__brand">
           <a href="#" class="nav__logo" aria-label="Servedhot Productions Home">
             <span class="nav__logo-icon">
-              <svg width="38" height="25" viewBox="0 0 48 32" fill="none" aria-hidden="true">
-                <rect width="48" height="32" rx="6" fill="#FF3C28"/>
-                <text x="50%" y="22.5" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="18" fill="white" letter-spacing="1">HOT</text>
-              </svg>
+              <img src="assets/logos/servedhot-logo.jpg" alt="Servedhot Productions" width="32" height="32" style="border-radius:6px;display:block;">
             </span>
             <span class="nav__logo-text">served<span class="accent">hot</span><span class="accent">.</span></span>
           </a>
@@ -818,7 +838,7 @@
         <div class="footer__links">
           <div class="footer__col">
             <h4 class="footer__heading">Navigate</h4>
-            <a href="#work">Work</a>
+            <!-- <a href="#work">Work</a> -->
             <a href="#services">Services</a>
             <a href="#brands">Brands</a>
             <a href="#about">About</a>
